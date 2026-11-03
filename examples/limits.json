@@ -1,0 +1,14 @@
+{
+  "limits": [
+    {"service": "compute", "name": "vm-standard-e2-1-micro-count", "region": "ap-mumbai-1", "limit": 4, "used": 3},
+    {"service": "compute", "name": "vm-standard-e2-1-micro-count", "region": "ap-hyderabad-1", "limit": 4, "used": 1},
+    {"service": "compute", "name": "standard-e5-core-count", "region": "ap-mumbai-1", "limit": 8, "used": 8},
+    {"service": "block-storage", "name": "total-storage-gb", "region": "ap-mumbai-1", "limit": 200, "used": 156},
+    {"service": "object-storage", "name": "bucket-count", "region": "ap-mumbai-1", "limit": 100, "used": 12},
+    {"service": "load-balancer", "name": "lb-count", "region": "ap-mumbai-1", "limit": 2, "used": 2},
+    {"service": "load-balancer", "name": "lb-count", "region": "ap-hyderabad-1", "limit": 4, "used": 0},
+    {"service": "database", "name": "atp-core-count", "region": "ap-mumbai-1", "limit": 2, "used": 1},
+    {"service": "monitoring", "name": "alarm-count", "region": "ap-mumbai-1", "limit": 50, "used": 47},
+    {"service": "streaming", "name": "partition-count", "region": "ap-mumbai-1", "limit": 0, "used": 2}
+  ]
+}
