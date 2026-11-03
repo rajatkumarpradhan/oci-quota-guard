@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oci-quota-guard"
+version = "0.1.0"
+description = "Offline OCI service-quota audit: usage ladders, headroom, regional drift"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.scripts]
+oci-quota-guard = "oci_quota_guard.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
