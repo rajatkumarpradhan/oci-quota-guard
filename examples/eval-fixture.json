@@ -1,0 +1,31 @@
+{
+  "cases": [
+    {"name": "healthy headroom stays quiet",
+     "limits": [{"service": "compute", "name": "cores", "region": "r1", "limit": 100, "used": 30}],
+     "expect_rules": []},
+    {"name": "ladder boundaries classify exactly",
+     "limits": [
+       {"service": "a", "name": "at-limit", "region": "r1", "limit": 10, "used": 10},
+       {"service": "a", "name": "ninety", "region": "r1", "limit": 100, "used": 90},
+       {"service": "a", "name": "seventyfive", "region": "r1", "limit": 100, "used": 75},
+       {"service": "a", "name": "fifty", "region": "r1", "limit": 100, "used": 50}],
+     "expect_rules": ["QUOTA001", "QUOTA002"],
+     "expect_severity": {"at-limit": "critical", "ninety": "critical", "seventyfive": "high", "fifty": "medium"}},
+    {"name": "zero limit with usage is a manual-review finding, not a crash",
+     "limits": [{"service": "streaming", "name": "partitions", "region": "r1", "limit": 0, "used": 2}],
+     "expect_rules": ["QUOTA003"]},
+    {"name": "unusable record is flagged, never skipped silently",
+     "limits": [{"service": "compute", "name": "cores", "region": "r1", "limit": "plenty", "used": 3}],
+     "expect_rules": ["QUOTA003"]},
+    {"name": "regional drift is an informational finding",
+     "limits": [
+       {"service": "lb", "name": "count", "region": "r1", "limit": 2, "used": 0},
+       {"service": "lb", "name": "count", "region": "r2", "limit": 4, "used": 0}],
+     "expect_rules": ["QUOTA004"]},
+    {"name": "same limits in two regions stay quiet",
+     "limits": [
+       {"service": "lb", "name": "count", "region": "r1", "limit": 4, "used": 0},
+       {"service": "lb", "name": "count", "region": "r2", "limit": 4, "used": 0}],
+     "expect_rules": []}
+  ]
+}
